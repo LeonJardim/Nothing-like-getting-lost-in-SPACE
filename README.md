@@ -1,5 +1,7 @@
 # Nothing like getting lost in SPACE
 
+https://vincible-leon.itch.io/nothing-like-getting-lost-in-space
+
 ## About the Game
 
 "Nothing like getting lost in SPACE" is a solo-developed space card game made for Jamcraft Games on mar/2025.
