@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://civpgear2u1pd"]
+
+[ext_resource type="Texture2D" uid="uid://buduv45gjl5ba" path="res://ART/characters/Alienship.png" id="1_ig05x"]
+[ext_resource type="Script" path="res://SCRIPTS/resource_scripts/stats.gd" id="2_x4uka"]
+
+[resource]
+script = ExtResource("2_x4uka")
+max_health = 10
+starting_shield = 5
+art = ExtResource("1_ig05x")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://xh11o226kvc1"]
+
+[ext_resource type="Texture2D" uid="uid://v6fwqa4d3vjc" path="res://ART/icons_ui/card_icons/Dodge_icon.png" id="1_l3hix"]
+[ext_resource type="Script" path="res://SCRIPTS/cards/dodge.gd" id="1_uejks"]
+[ext_resource type="Texture2D" uid="uid://dieu1llbptldp" path="res://ART/cards/card_dodge.png" id="2_4avck"]
+[ext_resource type="Texture2D" uid="uid://bmata7awenlr0" path="res://ART/icons_ui/card_icons/Self_icon.png" id="3_4h40t"]
+
+[resource]
+script = ExtResource("1_uejks")
+id = "card_dodge"
+type = 1
+target = 0
+cost = 0
+texture = ExtResource("2_4avck")
+icon = ExtResource("1_l3hix")
+target_icon = ExtResource("3_4h40t")
+tooltip_text = "Avoid getting hit
+for 3 seconds"

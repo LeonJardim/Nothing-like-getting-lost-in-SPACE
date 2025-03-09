@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgdfhsqaayb2m"]
+
+[ext_resource type="Texture2D" uid="uid://l57k6s0mf82" path="res://ART/effects/ExplosionAnimation-Sheet.png" id="1_1fo68"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdlj5"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uydl5"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdvtb"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kme0"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4mvp"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ncb"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vnir"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eextm"]
+atlas = ExtResource("1_1fo68")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cr8d4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdlj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uydl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdvtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kme0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4mvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ncb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vnir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eextm")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 8.0
+}]
+
+[node name="ExplosionSprite" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cr8d4")
+animation = &"explode"

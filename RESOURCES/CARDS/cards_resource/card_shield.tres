@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cdth4gkx6xbt8"]
+
+[ext_resource type="Script" path="res://SCRIPTS/cards/shield.gd" id="1_epeix"]
+[ext_resource type="Texture2D" uid="uid://b8fck8gf8hwnx" path="res://ART/icons_ui/card_icons/Shield_icon.png" id="1_h3sha"]
+[ext_resource type="Texture2D" uid="uid://k6eu8mhlimx2" path="res://ART/cards/card_shield.png" id="2_7v43c"]
+[ext_resource type="Texture2D" uid="uid://bmata7awenlr0" path="res://ART/icons_ui/card_icons/Self_icon.png" id="3_522ul"]
+
+[resource]
+script = ExtResource("1_epeix")
+id = "card_shield"
+type = 1
+target = 0
+cost = 2
+texture = ExtResource("2_7v43c")
+icon = ExtResource("1_h3sha")
+target_icon = ExtResource("3_522ul")
+tooltip_text = "Raises your shield
+by 4 points"

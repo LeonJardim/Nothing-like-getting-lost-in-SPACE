@@ -1,0 +1,153 @@
+[gd_scene load_steps=21 format=3 uid="uid://dvnmd3vdmwg0r"]
+
+[ext_resource type="Script" path="res://SCRIPTS/character_scripts/enemy.gd" id="1_nh0qo"]
+[ext_resource type="Texture2D" uid="uid://buduv45gjl5ba" path="res://ART/characters/Alienship.png" id="2_a0trf"]
+[ext_resource type="Resource" uid="uid://civpgear2u1pd" path="res://RESOURCES/ENEMIES/ovni.tres" id="2_g6ftm"]
+[ext_resource type="PackedScene" uid="uid://bxf350eqd34mt" path="res://SCENES/ui/stats_ui.tscn" id="2_xocaj"]
+[ext_resource type="Texture2D" uid="uid://cmcwkrqtfeud8" path="res://ART/characters/Alienship_Shooting.png" id="3_circe"]
+[ext_resource type="PackedScene" uid="uid://dgdfhsqaayb2m" path="res://SCENES/projectiles/explosion_sprite.tscn" id="6_kigeb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0trf"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0.35, 0.8375, 1, 0.729412)
+shadow_size = 24
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4381n"]
+atlas = ExtResource("2_a0trf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wp01"]
+atlas = ExtResource("3_circe")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdih1"]
+atlas = ExtResource("3_circe")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq1ba"]
+atlas = ExtResource("3_circe")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb1xj"]
+atlas = ExtResource("3_circe")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryw43"]
+atlas = ExtResource("3_circe")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwngb"]
+atlas = ExtResource("3_circe")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbmi7"]
+atlas = ExtResource("3_circe")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7hy7"]
+atlas = ExtResource("3_circe")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1u48"]
+atlas = ExtResource("3_circe")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c31v6"]
+atlas = ExtResource("3_circe")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ryk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4381n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wp01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdih1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb1xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryw43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwngb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbmi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7hy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1u48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c31v6")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r86yh"]
+size = Vector2(88, 52)
+
+[node name="Enemy" type="Area2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_nh0qo")
+stats = ExtResource("2_g6ftm")
+
+[node name="SelectColor" type="Panel" parent="."]
+visible = false
+offset_left = -17.0
+offset_top = -8.0
+offset_right = 17.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a0trf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ryk7")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_r86yh")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="StatsUI" parent="." instance=ExtResource("2_xocaj")]
+offset_left = -85.0
+offset_top = -60.0
+offset_right = 105.0
+offset_bottom = -25.0
+scale = Vector2(0.9, 0.9)
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="ExplosionSprite" parent="." instance=ExtResource("6_kigeb")]
+visible = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

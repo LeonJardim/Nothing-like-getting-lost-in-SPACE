@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://b7gwvuhg8y7ct"]
+
+[ext_resource type="Script" path="res://SCRIPTS/cards/bomb.gd" id="1_42c8t"]
+[ext_resource type="Texture2D" uid="uid://dajsralcgh3p8" path="res://ART/icons_ui/card_icons/Bomb_icon.png" id="1_wtnlq"]
+[ext_resource type="Texture2D" uid="uid://cjqenh8uegga0" path="res://ART/cards/card_bomb.png" id="2_olaj8"]
+[ext_resource type="Texture2D" uid="uid://ka4lxuc6pjeq" path="res://ART/icons_ui/card_icons/Everyone_icon.png" id="3_l8q7d"]
+
+[resource]
+script = ExtResource("1_42c8t")
+id = "card_bomb"
+type = 0
+target = 3
+cost = 5
+texture = ExtResource("2_olaj8")
+icon = ExtResource("1_wtnlq")
+target_icon = ExtResource("3_l8q7d")
+tooltip_text = "Deal 10 damage
+to everyone"

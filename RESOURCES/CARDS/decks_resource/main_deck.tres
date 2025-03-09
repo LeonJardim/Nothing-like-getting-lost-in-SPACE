@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=8 format=3 uid="uid://dj7bc6aqbvesh"]
+
+[ext_resource type="Script" path="res://SCRIPTS/card_configs/card_mis/card.gd" id="1_3omak"]
+[ext_resource type="Script" path="res://SCRIPTS/resource_scripts/card_pile.gd" id="2_1s4dq"]
+[ext_resource type="Resource" uid="uid://c7u42dnl2x5ty" path="res://RESOURCES/CARDS/cards_resource/card_laser.tres" id="3_aecit"]
+[ext_resource type="Resource" uid="uid://dbjrdvunuh7v8" path="res://RESOURCES/CARDS/cards_resource/card_missile.tres" id="3_fyrhb"]
+[ext_resource type="Resource" uid="uid://cdth4gkx6xbt8" path="res://RESOURCES/CARDS/cards_resource/card_shield.tres" id="4_8nrif"]
+[ext_resource type="Resource" uid="uid://xh11o226kvc1" path="res://RESOURCES/CARDS/cards_resource/card_dodge.tres" id="5_5q2h7"]
+[ext_resource type="Resource" uid="uid://b7gwvuhg8y7ct" path="res://RESOURCES/CARDS/cards_resource/card_bomb.tres" id="6_copke"]
+
+[resource]
+script = ExtResource("2_1s4dq")
+cards = Array[ExtResource("1_3omak")]([ExtResource("3_aecit"), ExtResource("3_aecit"), ExtResource("5_5q2h7"), ExtResource("5_5q2h7"), ExtResource("4_8nrif"), ExtResource("4_8nrif"), ExtResource("3_fyrhb"), ExtResource("6_copke")])

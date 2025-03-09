@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqc5d1f3cdq22"]
+
+[ext_resource type="Texture2D" uid="uid://d2i3lrpn6ko2f" path="res://ART/icons_ui/TooltipBackground.png" id="1_3trgu"]
+[ext_resource type="Texture2D" uid="uid://b8kj3cgjbcbc5" path="res://ART/icons_ui/BatteryCost_icon.png" id="2_6q8kd"]
+[ext_resource type="Texture2D" uid="uid://bcgfuo5ycc6ew" path="res://ART/icons_ui/card_icons/Missile_icon.png" id="2_76vdn"]
+[ext_resource type="Script" path="res://SCRIPTS/ui_scripts/tooltip.gd" id="2_bm740"]
+[ext_resource type="FontFile" uid="uid://bkofql8qdaqdy" path="res://ART/font/Micro5-Regular.ttf" id="3_bm740"]
+[ext_resource type="Texture2D" uid="uid://bdfxu0jsn6512" path="res://ART/icons_ui/card_icons/AllEnemies_icon.png" id="4_bm740"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sm38j"]
+texture = ExtResource("1_3trgu")
+modulate_color = Color(1, 1, 1, 0.627451)
+
+[node name="Tooltip" type="Panel"]
+modulate = Color(1, 1, 1, 0.705882)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -356.0
+offset_right = 373.0
+offset_bottom = -88.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sm38j")
+script = ExtResource("2_bm740")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CostIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer1"]
+custom_minimum_size = Vector2(91.87, 0)
+layout_mode = 2
+texture = ExtResource("2_6q8kd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CostText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_bm740")
+theme_override_font_sizes/font_size = 33
+text = "Costs 2 energy"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CardIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+texture = ExtResource("2_76vdn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -4
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_bm740")
+theme_override_font_sizes/font_size = 33
+text = "Deal 5 damage
+to all enemies"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="spacing" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bm740")
+theme_override_font_sizes/font_size = 33
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("4_bm740")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TargetText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_bm740")
+theme_override_font_sizes/font_size = 33
+text = "All Enemies"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://xf65bm45d1m0"]
+
+[ext_resource type="Script" path="res://SCRIPTS/level_scripts/spawner.gd" id="1_1km11"]
+
+[sub_resource type="Curve2D" id="Curve2D_elruq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -80, 0, 0, 0, 0, 1280, -80)
+}
+point_count = 2
+
+[node name="Spawner" type="Path2D"]
+curve = SubResource("Curve2D_elruq")
+script = ExtResource("1_1km11")
+
+[node name="PathFollow" type="PathFollow2D" parent="."]
+position = Vector2(0, -80)
+
+[node name="RockSpawnRatio" type="Timer" parent="."]
+wait_time = 7.0
+
+[node name="Marker" type="Marker2D" parent="."]
+position = Vector2(-80, 220)
+
+[node name="EnemySpawnRatio" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="RockSpawnRatio" to="." method="_on_rock_spawn_ratio_timeout"]
+[connection signal="timeout" from="EnemySpawnRatio" to="." method="_on_enemy_spawn_ratio_timeout"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://u5crnjwsmlmi"]
+
+[ext_resource type="Texture2D" uid="uid://csselkd1ae5m5" path="res://ART/objects/Asteroid3.png" id="1_cqmnh"]
+[ext_resource type="Script" path="res://SCRIPTS/object_scripts/asteroid.gd" id="1_vrtmb"]
+[ext_resource type="Texture2D" uid="uid://cqu2rsa7i40aa" path="res://ART/objects/Asteroid1.png" id="2_22mg7"]
+[ext_resource type="Texture2D" uid="uid://eog7kctvx4tu" path="res://ART/objects/Asteroid2.png" id="2_afk8c"]
+[ext_resource type="Texture2D" uid="uid://chemts4eya44" path="res://ART/objects/Asteroid4.png" id="2_h65yg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmx7w"]
+bg_color = Color(0.81, 0.1539, 0.1539, 0.666667)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0, 0, 0)
+border_blend = true
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fieh6"]
+size = Vector2(16, 14)
+
+[node name="Asteroid" type="Area2D" groups=["asteroids"]]
+scale = Vector2(4, 4)
+collision_layer = 8
+collision_mask = 53
+script = ExtResource("1_vrtmb")
+ast1 = ExtResource("2_22mg7")
+ast2 = ExtResource("2_afk8c")
+ast3 = ExtResource("1_cqmnh")
+ast4 = ExtResource("2_h65yg")
+
+[node name="SelectorPanel" type="Panel" parent="."]
+visible = false
+offset_left = -12.0
+offset_top = -11.0
+offset_right = 13.0
+offset_bottom = 11.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hmx7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cqmnh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_fieh6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

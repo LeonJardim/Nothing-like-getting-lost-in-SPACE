@@ -1,0 +1,225 @@
+[gd_scene load_steps=7 format=3 uid="uid://cet147i2rqgsi"]
+
+[ext_resource type="Texture2D" uid="uid://bh6twmfm5x7e4" path="res://ART/characters/Spaceship.png" id="1_uoeq6"]
+[ext_resource type="Texture2D" uid="uid://cgif0r2275ntn" path="res://ART/icons_ui/StarsBackground.png" id="2_yk44w"]
+[ext_resource type="Theme" uid="uid://cxwwvxki6fpue" path="res://RESOURCES/UI_RESOURCES/main_theme.tres" id="3_sudkn"]
+[ext_resource type="FontFile" uid="uid://chr7wxsqgcd3h" path="res://ART/font/PressStart2P-Regular.ttf" id="4_xvfcp"]
+[ext_resource type="Texture2D" uid="uid://brnfoagmyesab" path="res://ART/cards/CardBack.png" id="5_52vyj"]
+[ext_resource type="Texture2D" uid="uid://buduv45gjl5ba" path="res://ART/characters/Alienship.png" id="6_skri2"]
+
+[node name="Promotional" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Promotional1" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Space" type="Sprite2D" parent="Promotional1"]
+texture = ExtResource("2_yk44w")
+centered = false
+
+[node name="Alien1" type="Sprite2D" parent="Promotional1"]
+position = Vector2(321, 483)
+scale = Vector2(2, 2)
+texture = ExtResource("6_skri2")
+
+[node name="Alien2" type="Sprite2D" parent="Promotional1"]
+position = Vector2(819, 192)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_skri2")
+
+[node name="Alien3" type="Sprite2D" parent="Promotional1"]
+position = Vector2(1178, 293)
+scale = Vector2(2, 2)
+texture = ExtResource("6_skri2")
+
+[node name="Ship" type="Sprite2D" parent="Promotional1"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(640, 2936)
+scale = Vector2(340, 340)
+texture = ExtResource("1_uoeq6")
+
+[node name="Label" type="Label" parent="Promotional1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -565.0
+offset_top = 143.0
+offset_right = -63.0
+offset_bottom = 204.0
+grow_horizontal = 2
+theme = ExtResource("3_sudkn")
+theme_override_font_sizes/font_size = 60
+text = "nothing like getting lost in"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Promotional1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -548.0
+offset_top = 230.0
+offset_right = -80.0
+offset_bottom = 310.0
+grow_horizontal = 2
+theme = ExtResource("3_sudkn")
+theme_override_fonts/font = ExtResource("4_xvfcp")
+theme_override_font_sizes/font_size = 80
+text = "SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cards" type="Node2D" parent="Promotional1"]
+position = Vector2(992, 476)
+
+[node name="Card" type="Sprite2D" parent="Promotional1/Cards"]
+position = Vector2(-88, 45)
+rotation = -1.0472
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card5" type="Sprite2D" parent="Promotional1/Cards"]
+position = Vector2(90, 45)
+rotation = 1.0472
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card4" type="Sprite2D" parent="Promotional1/Cards"]
+position = Vector2(-49.1987, 15.2916)
+rotation = -0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card2" type="Sprite2D" parent="Promotional1/Cards"]
+position = Vector2(48.8013, 15.2916)
+rotation = 0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card3" type="Sprite2D" parent="Promotional1/Cards"]
+position = Vector2(-0.1987, 7.99999)
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Promotional2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Space" type="Sprite2D" parent="Promotional2"]
+position = Vector2(-283, -52)
+texture = ExtResource("2_yk44w")
+centered = false
+
+[node name="Alien1" type="Sprite2D" parent="Promotional2"]
+position = Vector2(131, 373)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_skri2")
+
+[node name="Alien2" type="Sprite2D" parent="Promotional2"]
+position = Vector2(819, 192)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_skri2")
+
+[node name="Alien3" type="Sprite2D" parent="Promotional2"]
+position = Vector2(1178, 293)
+scale = Vector2(2, 2)
+texture = ExtResource("6_skri2")
+
+[node name="Ship" type="Sprite2D" parent="Promotional2"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(315, 1789)
+scale = Vector2(200, 200)
+texture = ExtResource("1_uoeq6")
+
+[node name="Label" type="Label" parent="Promotional2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.0
+offset_top = 86.0
+offset_right = 251.0
+offset_bottom = 147.0
+grow_horizontal = 2
+theme = ExtResource("3_sudkn")
+theme_override_font_sizes/font_size = 44
+text = "nothing like getting lost in"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Promotional2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.0
+offset_top = 139.0
+offset_right = 234.0
+offset_bottom = 219.0
+grow_horizontal = 2
+theme = ExtResource("3_sudkn")
+theme_override_fonts/font = ExtResource("4_xvfcp")
+theme_override_font_sizes/font_size = 60
+text = "SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cards" type="Node2D" parent="Promotional2"]
+position = Vector2(441, 358)
+
+[node name="Card" type="Sprite2D" parent="Promotional2/Cards"]
+position = Vector2(-88, 45)
+rotation = -1.0472
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card5" type="Sprite2D" parent="Promotional2/Cards"]
+position = Vector2(90, 45)
+rotation = 1.0472
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card4" type="Sprite2D" parent="Promotional2/Cards"]
+position = Vector2(-49.1987, 15.2916)
+rotation = -0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card2" type="Sprite2D" parent="Promotional2/Cards"]
+position = Vector2(48.8013, 15.2916)
+rotation = 0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true
+
+[node name="Card3" type="Sprite2D" parent="Promotional2/Cards"]
+position = Vector2(-0.1987, 7.99999)
+scale = Vector2(2, 2)
+texture = ExtResource("5_52vyj")
+metadata/_edit_lock_ = true

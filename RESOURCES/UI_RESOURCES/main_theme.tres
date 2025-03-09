@@ -1,0 +1,137 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cxwwvxki6fpue"]
+
+[ext_resource type="FontFile" uid="uid://bkofql8qdaqdy" path="res://ART/font/Micro5-Regular.ttf" id="1_6a6q6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88yc5"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+border_width_bottom = 12
+border_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vscev"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_bottom = 12
+border_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.804743, 0.804742, 0.804743, 1)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1am5"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+border_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fabyn"]
+content_margin_left = 20.0
+content_margin_right = 10.0
+bg_color = Color(0.85, 0.85, 0.85, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n70u"]
+content_margin_left = 20.0
+content_margin_right = 10.0
+bg_color = Color(0.95, 0.95, 0.95, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6riqw"]
+content_margin_left = 20.0
+content_margin_right = 10.0
+bg_color = Color(0.71, 0.71, 0.71, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ycnf"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2qs3"]
+bg_color = Color(0, 0, 0, 0.235294)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y34kg"]
+bg_color = Color(0, 0.721569, 0.329412, 0.705882)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+shadow_size = 1
+
+[resource]
+default_font = ExtResource("1_6a6q6")
+default_font_size = 24
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 56
+Button/fonts/font = ExtResource("1_6a6q6")
+Button/styles/hover = SubResource("StyleBoxFlat_88yc5")
+Button/styles/normal = SubResource("StyleBoxFlat_vscev")
+Button/styles/pressed = SubResource("StyleBoxFlat_h1am5")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_fabyn")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_2n70u")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_6riqw")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_5ycnf")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 12
+Label/constants/shadow_offset_x = 4
+Label/constants/shadow_offset_y = 4
+Label/constants/shadow_outline_size = 4
+Label/font_sizes/font_size = 56
+ProgressBar/constants/outline_size = 12
+ProgressBar/font_sizes/font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_s2qs3")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_y34kg")

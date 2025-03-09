@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://buv4k2u2jorks"]
+
+[ext_resource type="Script" path="res://SCRIPTS/object_scripts/alien_ray.gd" id="1_8abe3"]
+[ext_resource type="Texture2D" uid="uid://kfkscjtrq8g4" path="res://ART/effects/AlinRing.png" id="1_oolhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcxuv"]
+size = Vector2(50, 32)
+
+[node name="AlienRay" type="Area2D"]
+collision_layer = 32
+collision_mask = 24
+script = ExtResource("1_8abe3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_oolhm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_oolhm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_oolhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_jcxuv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

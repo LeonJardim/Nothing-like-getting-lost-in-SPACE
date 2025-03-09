@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://df2l6gt815n37"]
+
+[ext_resource type="Script" path="res://SCRIPTS/character_scripts/player.gd" id="1_4fmmg"]
+[ext_resource type="PackedScene" uid="uid://bxf350eqd34mt" path="res://SCENES/ui/stats_ui.tscn" id="1_giw0v"]
+[ext_resource type="Texture2D" uid="uid://bh6twmfm5x7e4" path="res://ART/characters/Spaceship.png" id="1_xcqbu"]
+[ext_resource type="Resource" uid="uid://vrwetm5hyk1e" path="res://RESOURCES/PLAYER/player.tres" id="2_piopr"]
+[ext_resource type="Shader" path="res://RESOURCES/SHADERS/player_dodge_shader.gdshader" id="3_rgdca"]
+[ext_resource type="PackedScene" uid="uid://dgdfhsqaayb2m" path="res://SCENES/projectiles/explosion_sprite.tscn" id="6_a050t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgdca"]
+shader = ExtResource("3_rgdca")
+shader_parameter/ship_dodge = false
+
+[node name="Player" type="Area2D" groups=["player"]]
+collision_layer = 16
+collision_mask = 44
+script = ExtResource("1_4fmmg")
+stats = ExtResource("2_piopr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rgdca")
+scale = Vector2(2, 2)
+texture = ExtResource("1_xcqbu")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(38, 36, -38, 36, -38, 8, 0, -37, 38, 8)
+
+[node name="StatsUI" parent="." instance=ExtResource("1_giw0v")]
+offset_top = -12.0
+offset_bottom = 23.0
+theme_override_constants/separation = 140
+
+[node name="ExplosionSprite" parent="." instance=ExtResource("6_a050t")]
+visible = false
+
+[connection signal="animation_finished" from="ExplosionSprite" to="." method="_on_explosion_sprite_animation_finished"]

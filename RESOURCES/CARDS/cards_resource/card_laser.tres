@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c7u42dnl2x5ty"]
+
+[ext_resource type="Texture2D" uid="uid://bbhym2hpviqr7" path="res://ART/icons_ui/card_icons/Laser_icon.png" id="1_xd6yc"]
+[ext_resource type="Script" path="res://SCRIPTS/cards/laser.gd" id="1_y1w6v"]
+[ext_resource type="Texture2D" uid="uid://bbswpudm6y834" path="res://ART/cards/card_laser.png" id="2_j6y5j"]
+[ext_resource type="Texture2D" uid="uid://brgi5bkdaw8go" path="res://ART/icons_ui/card_icons/SingleTarget_icon.png" id="3_v8tyb"]
+
+[resource]
+script = ExtResource("1_y1w6v")
+id = "card_laser"
+type = 0
+target = 1
+cost = 1
+texture = ExtResource("2_j6y5j")
+icon = ExtResource("1_xd6yc")
+target_icon = ExtResource("3_v8tyb")
+tooltip_text = "Deal 5 damage
+and destroy rocks"

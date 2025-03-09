@@ -1,0 +1,239 @@
+[gd_scene load_steps=23 format=3 uid="uid://dchgplso4w03b"]
+
+[ext_resource type="Shader" path="res://RESOURCES/SHADERS/StarsShader.gdshader" id="1_7ayv5"]
+[ext_resource type="Script" path="res://SCRIPTS/level_scripts/game.gd" id="1_ubuat"]
+[ext_resource type="Texture2D" uid="uid://cgif0r2275ntn" path="res://ART/icons_ui/StarsBackground.png" id="2_15j2o"]
+[ext_resource type="PackedScene" uid="uid://dnlyck0ce8ahw" path="res://SCENES/cards/card_target_selector.tscn" id="3_5aknn"]
+[ext_resource type="PackedScene" uid="uid://xf65bm45d1m0" path="res://SCENES/managers/spawner.tscn" id="6_8y4ty"]
+[ext_resource type="PackedScene" uid="uid://df2l6gt815n37" path="res://SCENES/characters/player.tscn" id="6_vljqg"]
+[ext_resource type="PackedScene" uid="uid://cofiqgrr6iso7" path="res://SCENES/ui/energy_ui.tscn" id="7_s54qv"]
+[ext_resource type="Resource" uid="uid://vrwetm5hyk1e" path="res://RESOURCES/PLAYER/player.tres" id="8_lu0tm"]
+[ext_resource type="Script" path="res://SCRIPTS/ui_scripts/battle_ui.gd" id="8_x7y05"]
+[ext_resource type="Script" path="res://SCRIPTS/ui_scripts/hand.gd" id="9_bombd"]
+[ext_resource type="Script" path="res://SCRIPTS/level_scripts/player_handler.gd" id="9_jn6pk"]
+[ext_resource type="PackedScene" uid="uid://cqc5d1f3cdq22" path="res://SCENES/ui/tooltip.tscn" id="10_fdaos"]
+[ext_resource type="Theme" uid="uid://cxwwvxki6fpue" path="res://RESOURCES/UI_RESOURCES/main_theme.tres" id="14_51orf"]
+[ext_resource type="Script" path="res://SCRIPTS/ui_scripts/pause_menu.gd" id="14_dypby"]
+[ext_resource type="StyleBox" uid="uid://bbermf3bvkli" path="res://RESOURCES/UI_RESOURCES/tooltip_hover_style_box.tres" id="15_em5yg"]
+[ext_resource type="FontFile" uid="uid://dlsrghfyqg2qg" path="res://ART/font/NotoEmoji-VariableFont_wght.ttf" id="16_88usf"]
+[ext_resource type="StyleBox" uid="uid://rk5cwdl4amm4" path="res://RESOURCES/UI_RESOURCES/tooltip_pressed_style_box.tres" id="16_ossp3"]
+[ext_resource type="PackedScene" uid="uid://b73a43yk1ic6v" path="res://SCENES/ui/progress_bar.tscn" id="16_yxjq1"]
+[ext_resource type="StyleBox" uid="uid://dgllh7j7nqb8t" path="res://RESOURCES/UI_RESOURCES/tooltip_normal_style_box.tres" id="17_nu4vr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_300ri"]
+shader = ExtResource("1_7ayv5")
+shader_parameter/speed = Vector2(0.01, -0.07)
+shader_parameter/active = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp3wi"]
+size = Vector2(1280, 440)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_waijo"]
+bg_color = Color(0.843137, 0.843137, 0.843137, 0)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ubuat")
+char_stats = ExtResource("8_lu0tm")
+metadata/_edit_lock_ = true
+
+[node name="Utilities" type="Node2D" parent="."]
+
+[node name="SpaceBackground" type="Sprite2D" parent="Utilities"]
+z_index = -1
+material = SubResource("ShaderMaterial_300ri")
+position = Vector2(640, 360)
+texture = ExtResource("2_15j2o")
+metadata/_edit_lock_ = true
+
+[node name="CardTargetSelector" parent="Utilities" instance=ExtResource("3_5aknn")]
+
+[node name="CardDropArea" type="Area2D" parent="Utilities"]
+visible = false
+collision_layer = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Utilities/CardDropArea"]
+position = Vector2(640, 220)
+shape = SubResource("RectangleShape2D_hp3wi")
+debug_color = Color(0, 0.6, 0.701961, 0.101961)
+
+[node name="Spawner" parent="Utilities" instance=ExtResource("6_8y4ty")]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("6_vljqg")]
+position = Vector2(640, 430)
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("9_jn6pk")
+hand = NodePath("../BattleUI/Hand")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+script = ExtResource("8_x7y05")
+
+[node name="EnergyUI" parent="BattleUI" instance=ExtResource("7_s54qv")]
+
+[node name="Tooltip" parent="BattleUI" instance=ExtResource("10_fdaos")]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_top = 80.0
+offset_right = 282.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("9_bombd")
+
+[node name="PauseMenu" type="Panel" parent="BattleUI"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_waijo")
+script = ExtResource("14_dypby")
+
+[node name="Buttons" type="VBoxContainer" parent="BattleUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 71.0
+offset_top = -141.5
+offset_right = 271.0
+offset_bottom = 141.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 44
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="BattleUI/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("14_51orf")
+text = "Resume"
+
+[node name="TooltipButton" type="Button" parent="BattleUI/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("14_51orf")
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = ExtResource("15_em5yg")
+theme_override_styles/pressed = ExtResource("16_ossp3")
+theme_override_styles/normal = ExtResource("17_nu4vr")
+toggle_mode = true
+text = "Tooltip OFF"
+
+[node name="QuitButton" type="Button" parent="BattleUI/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("14_51orf")
+text = "Quit"
+
+[node name="Scrollers" type="VBoxContainer" parent="BattleUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -337.0
+offset_top = -153.0
+offset_right = -87.0
+offset_bottom = 154.0
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Master" type="Label" parent="BattleUI/PauseMenu/Scrollers"]
+layout_mode = 2
+theme = ExtResource("14_51orf")
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterScroll" type="HScrollBar" parent="BattleUI/PauseMenu/Scrollers"]
+custom_minimum_size = Vector2(250, 12)
+layout_mode = 2
+theme = ExtResource("14_51orf")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Music" type="Label" parent="BattleUI/PauseMenu/Scrollers"]
+layout_mode = 2
+theme = ExtResource("14_51orf")
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicScroll" type="HScrollBar" parent="BattleUI/PauseMenu/Scrollers"]
+custom_minimum_size = Vector2(250, 12)
+layout_mode = 2
+theme = ExtResource("14_51orf")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Effects" type="Label" parent="BattleUI/PauseMenu/Scrollers"]
+layout_mode = 2
+theme = ExtResource("14_51orf")
+text = "Effects"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectsScroll" type="HScrollBar" parent="BattleUI/PauseMenu/Scrollers"]
+custom_minimum_size = Vector2(250, 12)
+layout_mode = 2
+theme = ExtResource("14_51orf")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="PauseButton" type="Button" parent="BattleUI/PauseMenu"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -67.0
+offset_right = 71.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("14_51orf")
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_88usf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("15_em5yg")
+theme_override_styles/pressed = ExtResource("16_ossp3")
+theme_override_styles/normal = ExtResource("17_nu4vr")
+text = "⚙"
+icon_alignment = 1
+
+[node name="ProgressBar" parent="BattleUI" instance=ExtResource("16_yxjq1")]
+
+[connection signal="pressed" from="BattleUI/PauseMenu/Buttons/ResumeButton" to="BattleUI/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="BattleUI/PauseMenu/Buttons/TooltipButton" to="BattleUI/PauseMenu" method="_on_tooltip_button_pressed"]
+[connection signal="pressed" from="BattleUI/PauseMenu/Buttons/QuitButton" to="BattleUI/PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="value_changed" from="BattleUI/PauseMenu/Scrollers/MasterScroll" to="BattleUI/PauseMenu" method="_on_master_scroll_value_changed"]
+[connection signal="value_changed" from="BattleUI/PauseMenu/Scrollers/MusicScroll" to="BattleUI/PauseMenu" method="_on_music_scroll_value_changed"]
+[connection signal="value_changed" from="BattleUI/PauseMenu/Scrollers/EffectsScroll" to="BattleUI/PauseMenu" method="_on_effects_scroll_value_changed"]
+[connection signal="pressed" from="BattleUI/PauseMenu/PauseButton" to="BattleUI/PauseMenu" method="_on_pause_button_pressed"]

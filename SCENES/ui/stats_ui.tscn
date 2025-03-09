@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxf350eqd34mt"]
+
+[ext_resource type="Texture2D" uid="uid://ce6i34ub1ioai" path="res://ART/icons_ui/ShieldIcon.png" id="1_8xweq"]
+[ext_resource type="FontFile" uid="uid://drnhmvlev23ht" path="res://ART/font/PixelifySans-VariableFont_wght.ttf" id="1_fh4qa"]
+[ext_resource type="Script" path="res://SCRIPTS/ui_scripts/stats_ui.gd" id="2_00nt3"]
+[ext_resource type="Texture2D" uid="uid://1453c6781dao" path="res://ART/icons_ui/HealthIcon.png" id="2_swcmy"]
+[ext_resource type="FontFile" uid="uid://chr7wxsqgcd3h" path="res://ART/font/PressStart2P-Regular.ttf" id="4_puunl"]
+
+[sub_resource type="Theme" id="Theme_4xlcn"]
+default_font = ExtResource("1_fh4qa")
+
+[node name="StatsUI" type="HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme = SubResource("Theme_4xlcn")
+theme_override_constants/separation = 12
+alignment = 1
+script = ExtResource("2_00nt3")
+
+[node name="Health" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HealtImage" type="TextureRect" parent="Health"]
+layout_mode = 2
+texture = ExtResource("2_swcmy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="Health"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_puunl")
+theme_override_font_sizes/font_size = 24
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shield" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ShieldImage" type="TextureRect" parent="Shield"]
+layout_mode = 2
+texture = ExtResource("1_8xweq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ShieldLabel" type="Label" parent="Shield"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_puunl")
+theme_override_font_sizes/font_size = 24
+text = "94"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b73a43yk1ic6v"]
+
+[ext_resource type="Theme" uid="uid://cxwwvxki6fpue" path="res://RESOURCES/UI_RESOURCES/main_theme.tres" id="1_4g2xc"]
+[ext_resource type="Script" path="res://SCRIPTS/ui_scripts/progress_bar.gd" id="2_4iet7"]
+
+[node name="ProgressBar" type="ProgressBar"]
+custom_minimum_size = Vector2(500, 20)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = -49.0
+offset_right = 280.0
+offset_bottom = -29.0
+grow_horizontal = 2
+theme = ExtResource("1_4g2xc")
+max_value = 240.0
+step = 5.0
+show_percentage = false
+script = ExtResource("2_4iet7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

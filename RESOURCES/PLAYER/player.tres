@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://vrwetm5hyk1e"]
+
+[ext_resource type="Script" path="res://SCRIPTS/resource_scripts/character_stats.gd" id="1_jn718"]
+[ext_resource type="Texture2D" uid="uid://bh6twmfm5x7e4" path="res://ART/characters/Spaceship.png" id="1_nr521"]
+[ext_resource type="Resource" uid="uid://dj7bc6aqbvesh" path="res://RESOURCES/CARDS/decks_resource/main_deck.tres" id="3_gvjmm"]
+
+[resource]
+script = ExtResource("1_jn718")
+starting_deck = ExtResource("3_gvjmm")
+hand_size = 5
+max_energy = 9
+max_health = 20
+starting_shield = 5
+art = ExtResource("1_nr521")
